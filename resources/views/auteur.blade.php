@@ -151,7 +151,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/admin.png">
                             </a>
@@ -179,34 +179,17 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Titre</th>
+                                            <th>Auteur</th>
+                                          
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>giger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>rad2deg Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                       
-                                    </tbody>
+                                    @foreach($auteurs as $aut)
+                                    <tr>
+                                        <td>{{$aut->titre}}</td>
+                                        <td>{{$aut->auteur}}</td>
+                                    </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>

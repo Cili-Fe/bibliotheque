@@ -153,7 +153,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                                 <img class="img-profile rounded-circle" src="img/admin.png">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> </span>
                             </a>
                         </li>
                     </ul>
@@ -179,21 +179,17 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
+                                            <th>Titre</th>
+                                            <th>types</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>giger Nixon</td>
-                                            <td>System Architect</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>rad2deg Nixon</td>
-                                            <td>System Architect</td>
-                                           
-                                        </tr>
+                                    @foreach($type as $aut)
+                                    <tr>
+                                        <td>{{$aut->titre}}</td>
+                                        <td>{{$aut->type}}</td>
+                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -36,34 +36,54 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Ajouter un livre !</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" method="post" action="{{route('addbook')}}">
+                            @csrf
                                 <div class="form-group row">
                                     <div class="col-sm mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Titre" name="titre">
+                                        <input type="text" class="form-control form-control-user @error('titre') is-invalid @enderror" id="exampleFirstName" placeholder="Titre" name="titre"  required autocomplete="titre" autofocus>
                                     </div>
+                                    
+                                @error('titre')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                     
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Auteur" name="auteur">
+                                    <input type="text" class="form-control form-control-user @error('auteur') is-invalid @enderror" id="exampleInputEmail" 
+                                        placeholder="Auteur" name="auteur"  required autocomplete="auteur" autofocus>
                                 </div>
+                                @error('auteur')
+                                 <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
 
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Pays" name="auteur">
+                                    <input type="text" class="form-control form-control-user @error('pays') is-invalid @enderror" id="exampleInputEmail"
+                                        placeholder="Pays" name="pays" required autocomplete="pays" autofocus>
                                 </div>
+                                @error('pays')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
 
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Types" name="type">
+                                    <input type="text" class="form-control form-control-user @error('type') is-invalid @enderror" id="exampleInputEmail"
+                                        placeholder="Types" name="type"  required autocomplete="type" autofocus>
                                 </div>
+                                @error('type')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
 
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Année de parution" name="auteur">
+                                        <input type="date" class="form-control form-control-user @error('parution') is-invalid @enderror"
+                                            id="exampleInputPassword" placeholder="Année de parution" name="parution"  required autocomplete="parution" autofocus>
                                     </div>
                                 </div>
+                                @error('parution')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                               @enderror
+
                                 <hr>
                                 <a href="" class="btn btn-prima btn-user btn-block">
                                     <button class="btn btn-info mb-4">Enregistrer</button>

@@ -153,7 +153,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle" src="img/admin.png">
-                                <span class="mr-2 d-none d-lg-inline text small">{{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text small"></span>
                             </a>
                         </li>
                     </ul>
@@ -179,25 +179,26 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Titre</th>
+                                            <th>auteur</th>
+                                            <th>pays</th>
+                                            <th>type</th>
+                                            <th>parution</th>
+                                            
                                         </tr>
                                     </thead>
-                                   
-                                    <tbody>
-                                        <tr>
-                                            <td>giger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                    </tbody>
+
+                                    @foreach($livres as $list)
+                                    <tr>
+                                        
+                                        <td>{{$list->titre}}</td>
+                                        <td>{{$list->auteur}}</td>
+                                        <td>{{$list->pays}}</td>
+                                        <td>{{$list->type}}</td>
+                                        <td>{{$list->parution}}</td>
+                                    </tr>
+                                    @endforeach
+                                    
                                 </table>
                             </div>
                         </div>

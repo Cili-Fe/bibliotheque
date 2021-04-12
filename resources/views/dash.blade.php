@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active my-4">
-                <a class="nav-link" href="{{asset('book')}}">
+                <a class="nav-link" href="{{asset('livre')}}">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Ajouter un livre</span>
                 </a>
@@ -137,15 +137,14 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle" src="img/admin.png">
-                                <span class="mr-2 d-none d-lg-inline text-gray-100 small"> {{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-100 small"></span>
                             </a>
                         </li>
                     </ul>
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <button type="reset" class="btn "> 
-                                    <a class="dropdown-item text-white" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item text-white" href="{{ url('log') }}"
+                                    >
                                         {{ __('Deconnexion') }}
                                     </a>
 
