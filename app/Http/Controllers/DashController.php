@@ -12,6 +12,11 @@ class DashController extends Controller
         $this->middleware('auth');
     }*/
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     
     public function dash() { 
         return view('dash');

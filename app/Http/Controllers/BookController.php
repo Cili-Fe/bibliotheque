@@ -22,7 +22,7 @@ class BookController extends Controller
         $member->type = $req->input('type');
         $member->parution = $req->input('parution');
         $member->save(); // save() permet d'enregister dans la base de données
-        return redirect()->back();
+        return redirect()->back()->with(["reponse"=>"Livre enregistré avec succès"]);
 
     }
 }

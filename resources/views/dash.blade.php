@@ -137,7 +137,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle" src="img/admin.png">
-                                <span class="mr-2 d-none d-lg-inline text-gray-100 small"></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-100 small">{{Auth::user()->name}}</span>
                             </a>
                         </li>
                     </ul>
@@ -160,6 +160,7 @@
 
 
             </div>
+            <h1 class="text-center">Bibliothéque le SAVAN</h1>
             <!-- End of Main Content -->
             <img src="../img/bookcase.png" alt="" height="750">
         </div>

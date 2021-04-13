@@ -12,5 +12,4 @@ class BiblioController extends Controller
         return view('biblio')->with(['livres'=>$livres]);
     }
 
-    
 }

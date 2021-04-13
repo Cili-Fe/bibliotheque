@@ -24,14 +24,138 @@
 
 <body class="bg-gradient-white">
 
+              <!-- Page Wrapper -->
+    <div id="wrapper">
+
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{asset('dashboard')}}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <img src="../img" alt="">
+        </div>
+        <div class="sidebar-brand-text mx-3">LE SAVAN <sup>1</sup></div>
+    </a>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active my-4">
+        <a class="nav-link" href="{{asset('dashboard')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item active my-4">
+        <a class="nav-link" href="{{asset('livre')}}">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Ajouter un livre</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item active my-4">
+        <a class="nav-link" href="{{asset('biblio')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Bibliothéque</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Stock</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header"></h6>
+                <a class="collapse-item" href="{{asset('auteur')}}">Auteur</a>
+                <a class="collapse-item" href="{{asset('type')}}">Types</a>
+                <a class="collapse-item" href="{{asset('pays')}}">Pays</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+         <!-- Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-white my-4">
+                <span>Copyright &copy; Savan 2021</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+</ul>
+<!-- End of Sidebar -->
+
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Nav Item - Messages -->
+              
+                
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="img-profile rounded-circle" src="img/admin.png">
+                        <span class="mr-2 d-none d-lg-inline text-gray-100 small">{{Auth::user()->name}}</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <button type="reset" class="btn "> 
+                            <a class="dropdown-item text-white" href="{{ url('log') }}"
+                            >
+                                {{ __('Deconnexion') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+            </button>
+
+        </nav>
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
+            @if(session("reponse"))
+                       <h1 class="alert text-center">{{session("reponse")}}</h1>
+                     @endif
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
                     <div class="col-lg-5">
+                   
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Ajouter un livre !</h1>

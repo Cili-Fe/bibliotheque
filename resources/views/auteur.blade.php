@@ -53,7 +53,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active my-4">
-                <a class="nav-link" href="{{asset('book')}}"  data-target="#collapseTwo"
+                <a class="nav-link" href="{{asset('livre')}}"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Ajouter un livre</span>
@@ -151,7 +151,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/admin.png">
                             </a>
@@ -159,7 +159,16 @@
                     </ul>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
-                    <button type="reset" class="btn btn-dark ">Déconnexion</button>
+                    <button type="reset" class="btn "> 
+                                    <a class="dropdown-item text-white" href="{{ url('log') }}"
+                                    >
+                                        {{ __('Deconnexion') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                    </button>
                 </nav>
                 <!-- End of Topbar -->
 

@@ -9,6 +9,6 @@ class TypeController extends Controller
 {
     public function type() { 
         $types = Livre::all();
-        return view('type')->with(['type'=>$types]);
+        return view('type')->with(['type'=>$types]) ;
     }
 }
